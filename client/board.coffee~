@@ -1,0 +1,9 @@
+
+Template.hello.greeting = () -> 
+    "Welcome to board."
+
+Template.hello.events = 
+    'click input' : () ->
+	if !console
+            console.log "You pressed the button"
+

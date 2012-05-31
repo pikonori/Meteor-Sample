@@ -1,0 +1,88 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>board</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Board
+	<small>Bulletin board</small>
+      </h1>
+    </div>
+
+    {{> messages}}
+    {{> form}}
+
+  </div><!--container-->
+
+</body>
+
+<template name="form">
+  <form class="form-horizontal">
+    <fieldset>
+      <div class="control-group">
+	<label class="control-label" for="name">Name</label>
+	<div class="controls">
+	  <input class="input-xlarge" id="name">
+	</div>
+      </div>
+
+      <div class="control-group">
+	<label class="control-label" for="message">Message</label>
+	<div class="controls">
+	  <textarea class="input-xxlarge" id="message" rows="3"></textarea>
+	</div>
+      </div>
+
+      <div class="form-actions">
+	<button class="btn btn-primary">Save</button>
+      </div>
+    </fieldset>
+  </form>
+</template>
+
+
+
+<template name="messages">
+  {{#each lists}}
+
+  <div class="well">
+    <h3>
+      <small>Name</small>
+      {{name}}
+    </h3>
+
+    <div class="row">
+      <div class="span10 offset1 body">
+	{{message}}
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="span7">
+	<div class="btn-group">
+	  <button class="btn good">
+	    <i class="icon-arrow-up"></i>
+	    good <b>{{good}}</b>
+	  </button>
+	  <button class="btn bad">
+	    <i class="icon-arrow-down"></i>
+	    bad <b>{{bad}}</b>
+	  </button>
+	</div>
+      </div>
+
+      <div class="span4">
+	<h4>
+	  <small>time</small>
+	  {{timestamp}}
+	</h4>
+      </div>
+
+    </div>
+  </div>
+
+  {{/each}}
+</template>
